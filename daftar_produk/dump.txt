@@ -1,0 +1,4 @@
+Kipas Angin,150000,80
+Setrika,90000,12
+Keyboard,250000,20
+Mouse,70000,10
