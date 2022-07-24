@@ -1,5 +1,4 @@
 import pandas as pd
-import csv
 
 def conv_excel_to_csv():
   read_file = pd.read_excel('data/all_data.xlsx', sheet_name='Sheet1')
@@ -7,13 +6,13 @@ def conv_excel_to_csv():
 
 def conv_to_arr():
   scsv = open('data/data_input.csv')
-  type(scsv)
-  reader = csv.reader(scsv, delimiter=',')
-  next(reader)
-  arr = []
-  for row in reader:
-    arr.append(row)
-  return arr
+  text = scsv.readlines()
+  text = [s.strip('\n') for s in text]
+  arr2 = []
+  for item in text[1:]:
+    arr1 = item.split(',')
+    arr2.append(arr1)
+  return arr2
 
 def sorting(arr):
   temp = []
@@ -41,6 +40,7 @@ def main():
   res = sorting(conv_to_arr())
   for item in res:
     print(item)
+  # conv_to_arr()
   return 0
 
 if __name__ == '__main__':
